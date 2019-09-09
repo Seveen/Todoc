@@ -147,9 +147,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
 
     @Override
     public void onDeleteTask(Task task) {
-        //TODO: Changer pour call le vm
-        tasks.remove(task);
-        updateTasks();
+        viewModel.deleteTaskById(task.getId());
     }
 
     /**
@@ -175,18 +173,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
             }
             // If both project and name of the task have been set
             else if (taskProject != null) {
-                // TODO: Replace this by id of persisted task
-                long id = (long) (Math.random() * 50000);
-
-
-                Task task = new Task(
-                        id,
-                        taskProject.getId(),
-                        taskName,
-                        new Date().getTime()
-                );
-
-                addTask(task);
+                addTask(taskProject.getId(), taskName, new Date().getTime());
 
                 dialogInterface.dismiss();
             }
@@ -218,12 +205,12 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     /**
      * Adds the given task to the list of created tasks.
      *
-     * @param task the task to be added to the list
+     * @param projectId the id of the associated project
+     * @param name the name of the task
+     * @param creationTimestamp the timestamp of the creation of the task
      */
-    private void addTask(@NonNull Task task) {
-        //TODO: A modifier pour call le vm
-        tasks.add(task);
-        updateTasks();
+    private void addTask(long projectId, @NonNull String name, long creationTimestamp) {
+        viewModel.addNewTask(projectId, name, creationTimestamp);
     }
 
     /**

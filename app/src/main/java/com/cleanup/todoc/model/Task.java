@@ -83,6 +83,16 @@ public class Task {
     }
 
     /**
+     * Returns the projectId of the project associated with the task.
+     *
+     * @return the projectId of the project associated with the task
+     */
+    @NonNull
+    public long getProjectId() {
+        return projectId;
+    }
+
+    /**
      * Returns the project associated to the task.
      *
      * @return the project associated to the task
@@ -102,6 +112,8 @@ public class Task {
         return name;
     }
 
+
+
     /**
      * Sets the name of the task.
      *
@@ -109,6 +121,16 @@ public class Task {
      */
     private void setName(@NonNull String name) {
         this.name = name;
+    }
+
+    /**
+     * Returns the creationTimestamp of the task.
+     *
+     * @return the creationTimestamp of the task
+     */
+    @NonNull
+    public long getCreationTimestamp() {
+        return creationTimestamp;
     }
 
     /**
