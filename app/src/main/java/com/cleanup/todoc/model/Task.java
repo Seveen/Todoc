@@ -20,7 +20,7 @@ public class Task {
      * The unique identifier of the task
      */
     @PrimaryKey(autoGenerate = true)
-    private long id;
+    private long id = 0;
 
     /**
      * The unique identifier of the project associated to the task
@@ -46,7 +46,7 @@ public class Task {
     /**
      * Instantiates a new Task.
      *
-     * @param id                the unique identifier of the task to set
+     * @param id                the unique identifier of the  task to set
      * @param projectId         the unique identifier of the project associated to the task to set
      * @param name              the name of the task to set
      * @param creationTimestamp the timestamp when the task has been created to set

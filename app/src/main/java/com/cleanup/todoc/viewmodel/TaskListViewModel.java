@@ -4,7 +4,6 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.cleanup.todoc.di.DI;
 import com.cleanup.todoc.model.Project;
@@ -33,8 +32,8 @@ public class TaskListViewModel extends AndroidViewModel {
 		return projectList;
 	}
 
-	public void deleteTaskById(long id) {
-		repository.deleteTaskById(id);
+	public void deleteTask(Task task) {
+		repository.deleteTask(task);
 	}
 
 	public void addNewTask(long projectId, String name, long creationTimestamp) {
