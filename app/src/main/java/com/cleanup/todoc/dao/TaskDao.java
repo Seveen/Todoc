@@ -1,6 +1,6 @@
 package com.cleanup.todoc.dao;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -24,9 +24,9 @@ public interface TaskDao {
 	@Delete
 	public void deleteTasks(Task... tasks);
 
-	@Query("SELECT * from task")
+	@Query("SELECT * from task_table")
 	public LiveData<List<Task>> loadAllTasks();
 
-	@Query("SELECT * FROM task WHERE id = :id LIMIT 1")
+	@Query("SELECT * FROM task_table WHERE id = :id LIMIT 1")
 	public LiveData<Task> loadTaskById(long id);
 }
