@@ -1,8 +1,9 @@
 package com.cleanup.todoc;
 
 import androidx.test.rule.ActivityTestRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.test.runner.AndroidJUnit4;
+
 import android.view.View;
 import android.widget.TextView;
 
@@ -35,6 +36,7 @@ public class MainActivityInstrumentedTest {
 
     @Test
     public void addAndRemoveTask() {
+        //TODO : Recuperer nb items
         MainActivity activity = rule.getActivity();
         TextView lblNoTask = activity.findViewById(R.id.lbl_no_task);
         RecyclerView listTasks = activity.findViewById(R.id.list_tasks);
@@ -48,6 +50,8 @@ public class MainActivityInstrumentedTest {
         // Check that recyclerView is displayed
         assertThat(listTasks.getVisibility(), equalTo(View.VISIBLE));
         // Check that it contains one element only
+
+        //TODO: vérifier nbItems + 1
         assertThat(listTasks.getAdapter().getItemCount(), equalTo(1));
 
         onView(withId(R.id.img_delete)).perform(click());
@@ -61,6 +65,8 @@ public class MainActivityInstrumentedTest {
     @Test
     public void sortTasks() {
         MainActivity activity = rule.getActivity();
+
+        //TODO: Clean DB before tests
 
         onView(withId(R.id.fab_add_task)).perform(click());
         onView(withId(R.id.txt_task_name)).perform(replaceText("aaa Tâche example"));

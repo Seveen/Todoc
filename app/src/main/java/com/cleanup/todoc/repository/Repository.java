@@ -19,13 +19,11 @@ public class Repository {
 	private LiveData<List<Task>> allTasks;
 	private LiveData<List<Project>> allProjects;
 
-	public Repository(Application app) {
-
-		Database db = Database.getDatabase(app);
-		taskDao = db.taskDao();
-		projectDao = db.projectDao();
-		allTasks = taskDao.loadAllTasks();
-		allProjects = projectDao.loadAllProjects();
+	public Repository(TaskDao taskDao, ProjectDao projectDao) {
+		this.taskDao = taskDao;
+		this.projectDao = projectDao;
+		allTasks = this.taskDao.loadAllTasks();
+		allProjects = this.projectDao.loadAllProjects();
 	}
 
 	public LiveData<List<Task>> getAllTasks() {
