@@ -34,6 +34,14 @@ public abstract class Database extends RoomDatabase {
 		return INSTANCE;
 	}
 
+	public static Database getNewDatabaseInMemory(final Context context) {
+		INSTANCE = Room.inMemoryDatabaseBuilder(context.getApplicationContext(),
+				Database.class)
+				.addCallback(databaseCallback)
+				.build();
+		return INSTANCE;
+	}
+
 	private static Database.Callback databaseCallback =
 			new Database.Callback(){
 

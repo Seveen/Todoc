@@ -63,5 +63,4 @@ public class RepositoryUnitTest {
 		assertEquals(liveDataProjectList, repository.getAllProjects());
 	}
 
-
 }

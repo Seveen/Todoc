@@ -32,9 +32,10 @@ dependencies {
     implementation "androidx.room:room-runtime:2.2.0-rc01"
     annotationProcessor "androidx.room:room-compiler:2.2.0-rc01"
     testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:2.+'
+    testImplementation 'org.mockito:mockito-core:2.28.2'
     testImplementation "androidx.room:room-testing:2.2.0-rc01"
     androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:core:1.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
