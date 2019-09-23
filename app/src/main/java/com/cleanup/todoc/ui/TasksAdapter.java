@@ -1,13 +1,14 @@
 package com.cleanup.todoc.ui;
 
 import android.content.res.ColorStateList;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.cleanup.todoc.R;
 import com.cleanup.todoc.model.Project;
@@ -88,7 +89,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * @author Gaëtan HERFRAY
      */
     class TaskViewHolder extends RecyclerView.ViewHolder {
-        /**
+         /**
          * The circle icon showing the color of the project
          */
         private final AppCompatImageView imgProject;

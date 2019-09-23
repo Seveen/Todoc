@@ -11,13 +11,13 @@ public class DI {
 	private static Repository repository = null;
 	public static Repository getTaskRepository(Application application) {
 		if (repository == null) {
+			Database db;
 			if (instantiateDbInMemory) {
-				Database db = Database.getNewDatabaseInMemory(application);
-				repository = new Repository(db.taskDao(), db.projectDao());
+				db = Database.getNewDatabaseInMemory(application);
 			} else {
-				Database db = Database.getDatabase(application);
-				repository = new Repository(db.taskDao(), db.projectDao());
+				db = Database.getDatabase(application);
 			}
+			repository = new Repository(db.taskDao(), db.projectDao());
 		}
 		return repository;
 	}

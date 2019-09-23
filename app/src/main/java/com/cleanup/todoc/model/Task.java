@@ -8,6 +8,7 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 /**
  * <p>Model for the tasks of the application.</p>
@@ -183,5 +184,21 @@ public class Task {
         public int compare(Task left, Task right) {
             return (int) (left.creationTimestamp - right.creationTimestamp);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id == task.id &&
+                projectId == task.projectId &&
+                creationTimestamp == task.creationTimestamp &&
+                name.equals(task.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, projectId, name, creationTimestamp);
     }
 }

@@ -2,6 +2,7 @@ package com.cleanup.todoc.database;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.room.Room;
@@ -37,6 +38,7 @@ public abstract class Database extends RoomDatabase {
 	public static Database getNewDatabaseInMemory(final Context context) {
 		INSTANCE = Room.inMemoryDatabaseBuilder(context.getApplicationContext(),
 				Database.class)
+				.allowMainThreadQueries()
 				.addCallback(databaseCallback)
 				.build();
 		return INSTANCE;
@@ -62,6 +64,7 @@ public abstract class Database extends RoomDatabase {
 
 		@Override
 		protected Void doInBackground(final Void... params) {
+			Log.d("TESTTESTTEST", "doInBackground: ");
 			mDao.deleteAll();
 			Project[] projects = Project.getAllProjects();
 			for (Project project : projects) {
