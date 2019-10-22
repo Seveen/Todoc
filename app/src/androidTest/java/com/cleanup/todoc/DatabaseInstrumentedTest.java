@@ -63,5 +63,4 @@ public class DatabaseInstrumentedTest {
 		List<Task> emptyAllTasks = LiveDataTestUtil.getValue(taskDao.loadAllTasks());
 		assertThat(emptyAllTasks, empty());
 	}
-
 }

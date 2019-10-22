@@ -3,7 +3,6 @@ package com.cleanup.todoc.model;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -109,4 +108,19 @@ public class Project {
     public String toString() {
         return getName();
     }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Project project = (Project) o;
+//        return id == project.id &&
+//                color == project.color &&
+//                name.equals(project.name);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, name, color);
+//    }
 }
