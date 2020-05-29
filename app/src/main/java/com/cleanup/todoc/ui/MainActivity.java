@@ -1,15 +1,7 @@
 package com.cleanup.todoc.ui;
 
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,10 +11,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.cleanup.todoc.R;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
-import com.cleanup.todoc.repository.Repository;
 import com.cleanup.todoc.viewmodel.TaskListViewModel;
 
 import java.util.ArrayList;
@@ -107,17 +106,10 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         listTasks.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         listTasks.setAdapter(adapter);
 
-        findViewById(R.id.fab_add_task).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showAddTaskDialog();
-            }
-        });
+        findViewById(R.id.fab_add_task).setOnClickListener(view -> showAddTaskDialog());
 
         viewModel = ViewModelProviders.of(this).get(TaskListViewModel.class);
-        viewModel.getProjectList().observe(this, projectList -> {
-            allProjects = projectList;
-        });
+        viewModel.getProjectList().observe(this, projectList -> allProjects = projectList);
         viewModel.getTasksList().observe(this, taskList -> {
             tasks = taskList;
             updateTasks();
